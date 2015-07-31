@@ -1,0 +1,20 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/" />
+</head>
+
+<body>
+  <div class="ui container">
+    <div ng-controller="MainCtrl">
+      <div>
+        <h2>Alert Demo Generator</h2>
+      </div>
+      <div class="ui top attached tabular menu">
+        <div role="presentation" class="item" ng-class="{active: state.is('configurations')}"><a ui-sref="configurations">Configurations</a></div>
+        <div role="presentation" class="item" ng-class="{active: state.is('normalizations')}"><a ui-sref="normalizations">Normalizations</a></div>
+        <div role="presentation" class="item" ng-class="{active: state.is('alerts')}"><a ui-sref="alerts">Alerts</a></div>
+      </div>
+    </div>
+    <div class="ui bottom attached active tab segment" ng-class="{loading: user.state.loading == true}" ui-view></div>
+  </div>
+</body>

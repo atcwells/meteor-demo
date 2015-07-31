@@ -1,0 +1,29 @@
+<div class="ui segments">
+  <div class="ui segment">
+    <label>Alerts</label>
+  </div>
+  <div class="ui secondary segment">
+    <div class="ui grid">
+      <div class="twelve wide column">
+        <div class="ui grid">
+          <div ng-repeat="source in sources | filter:sourceFilter" class="eight wide column">
+            <div class="header">{{source.name}}</div>
+            <span class="pull-right">
+              <a ng-click="switchActive(source)">
+                <span class="glyphicon glyphicon-ok" ng-show="source.active"></span>
+                <span class="glyphicon glyphicon-remove" ng-show="!source.active"></span>
+              </a>
+            </span>
+            <ul>
+              <li ng-repeat="alert in alerts | filter:{psp_source : source.name}">{{alert.alert_message}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="four wide column">
+        <h2>Options</h2>
+        <input type="text" ng-model="sourceFilter" placeholder="Filter" class="form-control" />
+      </div>
+    </div>
+  </div>
+</div>
